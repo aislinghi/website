@@ -1,0 +1,24 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "Professional ophthalmology practice website with appointment booking and patient information.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aislinghi/website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aislinghi/website/issues"
+  },
+  "homepage": "https://github.com/aislinghi/website#readme",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

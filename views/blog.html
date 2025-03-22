@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts - Clinical Coding Journey</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/">Home</a>
+            <a href="/blog" class="active">Blog</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1>Blog Posts</h1>
+            <div id="posts-container">
+                <!-- Posts will be loaded here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Clinical Coding Journey</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fetch and display blog posts
+        fetch('/api/posts')
+            .then(response => response.json())
+            .then(posts => {
+                const container = document.getElementById('posts-container');
+                posts.forEach(post => {
+                    const article = document.createElement('article');
+                    article.className = 'blog-post';
+                    article.innerHTML = `
+                        <h2>${post.title}</h2>
+                        ${post.content}
+                    `;
+                    container.appendChild(article);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading posts:', error);
+                document.getElementById('posts-container').innerHTML = 
+                    '<p class="error">Error loading blog posts. Please try again later.</p>';
+            });
+    </script>
+</body>
+</html> 
